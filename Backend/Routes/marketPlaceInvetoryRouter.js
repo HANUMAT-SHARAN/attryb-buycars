@@ -1,6 +1,7 @@
 const express = require("express");
 const { InventoryModel } = require("../Models/inventoryModel.js");
 const { oemSpecsModel } = require("../Models/oemSpecsModel.js");
+const { userRelationShip } = require("../Middlewares/userRelationship.js");
 
 const invetoryRouter = express.Router();
 const d = [
@@ -128,6 +129,10 @@ invetoryRouter.get("/inventory/:id", async (req, res) => {
     res.status(500).send({ msg: error.message });
   }
 });
+
+invetoryRouter.get('/check',userRelationShip,async(req,res)=>{
+  res.send({msg:"Done"})
+})
 
 //update particulart inventory
 
