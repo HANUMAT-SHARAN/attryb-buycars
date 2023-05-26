@@ -28,7 +28,7 @@ const Navbar = () => {
   const [current, setCurrent] = useState("deals");
   const [serachDrawerOpen, setSearchDrawerOpen] = useState(false);
   const handleLogout = () => {
-    Cookies.remove("userTokenBuyCars");
+    localStorage.removeItem("userTokenBuyCars");
     dispatch(logoutUser());
   };
   return (

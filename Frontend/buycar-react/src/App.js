@@ -17,13 +17,13 @@ function App() {
   const dispatch = useDispatch();
 
   const getUserData = async () => {
-    const token = Cookies.get("userTokenBuyCars");
+    const token = localStorage.getItem("userTokenBuyCars");
     if (!token) return;
 
     let decoded = jwt_decode(token);
     let { data } = await axios.get(`${Api_Link}/user/${decoded.id}`);
     if (!data.user) {
-      Cookies.remove("userTokenBuyCars")
+      localStorage.removeItem("userTokenBuyCars")
 
       dispatch(logoutUser());
     } else {

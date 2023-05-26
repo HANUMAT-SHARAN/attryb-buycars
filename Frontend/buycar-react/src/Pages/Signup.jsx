@@ -40,7 +40,7 @@ const Signup = () => {
       setUserData(initial);
       succesAlert(data.msg);
       if (data.token) {
-        Cookies.set("userTokenBuyCars", data.token);
+        localStorage.setItem("userTokenBuyCars", data.token);
 
         getUserData(data.token);
         nav("/deals");
