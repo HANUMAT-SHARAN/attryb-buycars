@@ -8,7 +8,8 @@ export const cssStyles = {
   small: "1rem",
 };
 
-export const Api_Link = `http://localhost:8080`;
+// export const Api_Link = `http://localhost:8080`;
+export const Api_Link=`https://wild-plum-kitten-tutu.cyclic.app`
 
 
 
