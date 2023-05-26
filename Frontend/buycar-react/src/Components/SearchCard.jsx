@@ -1,7 +1,7 @@
 import { Box, Button, Image, SimpleGrid, Text } from "@chakra-ui/react";
 import React from "react";
 import { cssStyles } from "./Reusable";
-import ButtonMain from "./ButtonMain";
+
 
 const SearchCard = ({
   img,

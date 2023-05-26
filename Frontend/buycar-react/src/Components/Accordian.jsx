@@ -22,6 +22,8 @@ export const Accordian = ({
   majorScratches,
   title,
 }) => {
+  //this accodian component is used for the ui purpose so that more detaisls can be show with good ui effect
+  //like accddian by prop drilling the props from parent to child 
   return (
     <>
       <Accordion allowMultiple={true}>

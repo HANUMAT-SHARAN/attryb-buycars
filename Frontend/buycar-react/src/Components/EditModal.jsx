@@ -20,7 +20,13 @@ export const EditModal = ({ editModalOpen, setEditModalOpen, id,callData }) => {
   const [loading, setLoading] = useState(false);
   const [inventoryData, setInventoryData] = useState({});
 
+
+  //this is edit modal open component  which is opened when when we click on parent edit modal open button with
+  // and used to show input form to update the required values we want
+
   const handleUpdate = async (e) => {
+
+    //this function is used to update the details of the post updated by user
     e.preventDefault();
     setLoading(true);
     try {

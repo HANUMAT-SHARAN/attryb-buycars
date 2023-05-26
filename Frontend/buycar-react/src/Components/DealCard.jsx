@@ -28,7 +28,11 @@ const DealCard = ({
   const { user } = useSelector((store) => store.auth);
   const [loading, setLoading] = useState(false);
 
+  //this is the deal card component which shows all the details of the particular deal
+
   const handlePostDelete = async (id) => {
+    //this handlepostdelete function is used to delete the particular post
+
     try {
       setLoading(true);
       let { data } = await axios.delete(`${Api_Link}/inventory/${id}`);
@@ -41,7 +45,7 @@ const DealCard = ({
   };
   return (
     <Box
-    minW={"300px"}
+      minW={"300px"}
       fontSize={"15px"}
       _hover={{ boxShadow: `rgba(0, 0, 0, 0.35) 0px 5px 15px;` }}
       cursor={"pointer"}
@@ -63,6 +67,7 @@ const DealCard = ({
       <Text>Title {title}</Text>
       <Text>Name {oemId.nameOfModel}</Text>
       <Text>Year : {oemId.yearOfModel}</Text>
+      {/* here conditional renderingis done to show the update ui accoding to updated filter with new styles */}
       <Text
         style={
           currentFilter === "price"
@@ -79,7 +84,7 @@ const DealCard = ({
       >
         Price ₹ {price}
       </Text>
-
+      {/* here all the colors have been map with there required colors value */}
       <SimpleGrid gap={2} columns={[2, 4]}>
         {oemId.colors.map((el) => (
           <Text
@@ -114,6 +119,10 @@ const DealCard = ({
         Mielage {oemId.mileage} /ltr
       </Text>
       <Text>Power {oemId.power} HP</Text>
+
+      {/* here we have take userId from redux and checking with deal userId if they both are same this means
+      this particular deal post have been done by logined user and he can delete and update the same post */}
+
       {user._id && user._id === userId && userId ? (
         <Flex m={2} justifyContent={"space-around"}>
           <Button
@@ -123,6 +132,10 @@ const DealCard = ({
           >
             Delete
           </Button>
+
+          {/* this is edit modal button which on clicking make editmodalOpen with the help of manuplation
+          using useState */}
+          
           <Button onClick={() => setEditModalOpen(true)} colorScheme="green">
             Edit
           </Button>
@@ -138,8 +151,10 @@ const DealCard = ({
         prevBuyers={prevBuyers}
         km={km}
       />
+
       <EditModal
-        id={_id} callData={()=>calldata()}
+        id={_id}
+        callData={() => calldata()}
         editModalOpen={editModalOpen}
         setEditModalOpen={(e) => setEditModalOpen(e)}
       />

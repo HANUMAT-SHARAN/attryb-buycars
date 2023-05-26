@@ -1,5 +1,6 @@
 import { toast } from "react-toastify";
 
+//this is css style which will be consitnent through out the ui for better css
 
 export const cssStyles = {
   boxShadow1: `rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;`,
@@ -8,10 +9,14 @@ export const cssStyles = {
   small: "1rem",
 };
 
+//this is backend api link
+
 // export const Api_Link = `http://localhost:8080`;
 export const Api_Link=`https://wild-plum-kitten-tutu.cyclic.app`
 
 
+//all the allerts are made here once so i can use them wehere ever i want just by importing them and this will
+//be save time and less code will be there like normal js alert
 
 export const succesAlert = (message, theme) => {
   toast.success(message, { theme, position: "top-center" });
@@ -31,7 +36,8 @@ export const defaultAlert = (message, theme) => {
 };
 
 
-
+//this uploadFiles Function takes image from frontend and then upload to cloud database cloudinary and give us the 
+//return the link of that image
 export const uploadFilesFunction = async (image) => {
   try {
     const filesData = new FormData();
