@@ -28,12 +28,12 @@ const DealsPage = () => {
     <>
       <SimpleGrid
         gap={5}
-        fontSize={"19px"}
+        fontSize={"15px"}
         fontWeight={500}
         color="white"
         width={"95%"}
         m="auto"
-        columns={[2, 2, 3, 3]}
+        columns={[1, 1, 2, 3]}
       >
         <Box borderRadius={5} p={2} boxShadow={cssStyles.boxShadow1}>
           <Text width={"170px"} borderRadius={5} bg="green" m="auto" mb={2}>
