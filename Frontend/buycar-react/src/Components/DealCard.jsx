@@ -41,6 +41,7 @@ const DealCard = ({
   };
   return (
     <Box
+    minW={"300px"}
       fontSize={"15px"}
       _hover={{ boxShadow: `rgba(0, 0, 0, 0.35) 0px 5px 15px;` }}
       cursor={"pointer"}
