@@ -43,7 +43,7 @@ const Login = () => {
       if (data.token) {
         Cookies.set("userTokenBuyCars", data.token);
         getUserData(data.token);
-        nav("/alldeals")
+        nav("/deals")
       }
       setLoading(false);
     } catch (error) {
