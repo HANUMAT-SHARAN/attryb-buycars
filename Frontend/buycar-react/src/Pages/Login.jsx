@@ -19,9 +19,8 @@ import { useDispatch } from "react-redux";
 import Cookies from "js-cookie";
 import { useNavigate } from "react-router-dom";
 
-
 const Login = () => {
-const nav=useNavigate()
+  const nav = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
   const initial = { email: "", password: "" };
   const [userData, setUserData] = useState(initial);
@@ -35,7 +34,7 @@ const nav=useNavigate()
   };
   const handleLogin = async (e) => {
     e.preventDefault();
-   console.log(userData)
+    console.log(userData);
     try {
       setLoading(true);
       let { data } = await axios.post(`${Api_Link}/login`, userData);
@@ -43,10 +42,8 @@ const nav=useNavigate()
       succesAlert(data.msg);
       if (data.token) {
         Cookies.set("userTokenBuyCars", data.token);
-
         getUserData(data.token);
-        
-        
+        nav("/alldeals")
       }
       setLoading(false);
     } catch (error) {
@@ -66,7 +63,8 @@ const nav=useNavigate()
       </Heading>
       <form onSubmit={handleLogin} action="">
         <SimpleGrid gap={4} m="auto">
-          <Input required
+          <Input
+            required
             onChange={(e) =>
               setUserData({ ...userData, email: e.target.value })
             }
@@ -74,7 +72,8 @@ const nav=useNavigate()
             placeholder="Enter Your Password"
           />
           <InputGroup>
-            <Input required
+            <Input
+              required
               onChange={(e) =>
                 setUserData({ ...userData, password: e.target.value })
               }
@@ -85,13 +84,14 @@ const nav=useNavigate()
               {showPassword ? <ViewIcon /> : <ViewOffIcon />}
             </InputRightElement>
           </InputGroup>
-          <Text required
+          <Text
+            required
             color="blue"
             fontWeight={500}
             textDecoration={"underline"}
             onClick={() => nav("/signup")}
           >
-            Dont Have an account ? Create  Now
+            Dont Have an account ? Create Now
           </Text>
 
           <ButtonMain

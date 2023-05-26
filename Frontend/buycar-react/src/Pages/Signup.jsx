@@ -23,7 +23,7 @@ const Signup = () => {
   const [userData, setUserData] = useState(initial);
   const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
-  const nav=useNavigate()
+  const nav = useNavigate();
 
   const getUserData = async (token) => {
     const decoded = jwtDecode(token);
@@ -43,8 +43,7 @@ const Signup = () => {
         Cookies.set("userTokenBuyCars", data.token);
 
         getUserData(data.token);
-        
-        
+        nav("/alldeals");
       }
       setLoading(false);
     } catch (error) {
@@ -54,7 +53,6 @@ const Signup = () => {
 
   return (
     <Box
-  
       width={["330px", "400px"]}
       m="auto"
       p={5}
@@ -66,13 +64,15 @@ const Signup = () => {
       </Heading>
       <form onSubmit={handleSignup} action="">
         <SimpleGrid gap={4} m="auto">
-          <Input required
+          <Input
+            required
             value={userData.name}
             onChange={(e) => setUserData({ ...userData, name: e.target.value })}
             type="text"
             placeholder="Enter Your Name"
           />
-          <Input required
+          <Input
+            required
             value={userData.email}
             onChange={(e) =>
               setUserData({ ...userData, email: e.target.value })
@@ -81,7 +81,8 @@ const Signup = () => {
             placeholder="Enter Your Email"
           />
           <InputGroup>
-            <Input required
+            <Input
+              required
               value={userData.password}
               onChange={(e) =>
                 setUserData({ ...userData, password: e.target.value })
@@ -93,7 +94,14 @@ const Signup = () => {
               {showPassword ? <ViewIcon /> : <ViewOffIcon />}
             </InputRightElement>
           </InputGroup>
-          <Text color="blue" fontWeight={500} textDecoration={"underline"} onClick={()=>nav("/login")}>Already Have an account ? Login Now</Text>
+          <Text
+            color="blue"
+            fontWeight={500}
+            textDecoration={"underline"}
+            onClick={() => nav("/login")}
+          >
+            Already Have an account ? Login Now
+          </Text>
           <ButtonMain
             loading={loading}
             type={"submit"}

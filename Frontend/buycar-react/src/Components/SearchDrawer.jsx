@@ -10,7 +10,7 @@ import {
 } from "@chakra-ui/react";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Api_Link, cssStyles } from "./Reusable";
+import { Api_Link, cssStyles, succesAlert } from "./Reusable";
 import { render } from "react-dom";
 import SearchCard from "./SearchCard";
 import Loader from "./Loader";
@@ -97,6 +97,7 @@ export const SearchDrawer = ({
                         yearOfModel: el.yearOfModel,
                       }),
                       setSearchDrawerOpen(false),
+                      succesAlert("Car Model Selected Success")
                     ]}
                     key={el._id}
                   >
