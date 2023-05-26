@@ -76,7 +76,7 @@ const AddDeal = () => {
     try {
       let { data } = await axios.post(`${Api_Link}/inventory`, inventoryData);
       succesAlert(data.msg);
-      console.log(data);
+    
       setInventoryData(initial);
       if (inputRef.current) {
         inputRef.current.value = "";
@@ -104,7 +104,7 @@ const AddDeal = () => {
 
   return (
     <Box borderRadius={4} boxShadow={cssStyles.boxShadow1} p={4} m="auto" width={["330px", "500px"]}>
-      <Heading>Add Deal </Heading>
+      <Heading>Add New Deal </Heading>
 
       <SearchDrawer
         sendSelected={(e) => setCheckedOned(e)}
@@ -131,7 +131,7 @@ const AddDeal = () => {
             }
             placeholder=" KMs on Odometer"
           />
-          <Flex alignItems={"center"} justifyContent={"space-around"}>
+          <Flex flexDirection={["column","row"]} alignItems={"center"} justifyContent={"space-around"}>
             <Text
               p={1}
               pl={2}

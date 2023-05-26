@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import {
   Box,
   Heading,
+  Image,
   Input,
   InputGroup,
   InputRightElement,
@@ -34,7 +35,7 @@ const Login = () => {
   };
   const handleLogin = async (e) => {
     e.preventDefault();
-    console.log(userData);
+   
     try {
       setLoading(true);
       let { data } = await axios.post(`${Api_Link}/login`, userData);
@@ -43,7 +44,7 @@ const Login = () => {
       if (data.token) {
         Cookies.set("userTokenBuyCars", data.token);
         getUserData(data.token);
-        nav("/deals")
+        nav("/deals");
       }
       setLoading(false);
     } catch (error) {
@@ -58,8 +59,11 @@ const Login = () => {
       borderRadius={5}
       boxShadow={cssStyles.boxShadow1}
     >
-      <Heading fontSize={cssStyles.medium} mb={3}>
-        Login Now
+      <center>
+        <Image src="https://attryb.com/assets/attrybNavLog.svg" />
+      </center>
+      <Heading fontSize={cssStyles.medium} mb={3} mt={5}>
+        Welcome Back !
       </Heading>
       <form onSubmit={handleLogin} action="">
         <SimpleGrid gap={4} m="auto">
@@ -69,7 +73,7 @@ const Login = () => {
               setUserData({ ...userData, email: e.target.value })
             }
             type="email"
-            placeholder="Enter Your Password"
+            placeholder="Enter Your Email"
           />
           <InputGroup>
             <Input
@@ -85,6 +89,7 @@ const Login = () => {
             </InputRightElement>
           </InputGroup>
           <Text
+            cursor={"pointer"}
             required
             color="blue"
             fontWeight={500}

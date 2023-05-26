@@ -15,6 +15,7 @@ import { render } from "react-dom";
 import SearchCard from "./SearchCard";
 import Loader from "./Loader";
 export const SearchDrawer = ({
+  nav,
   serachDrawerOpen,
   setSearchDrawerOpen,
   sendSelected,
@@ -26,7 +27,7 @@ export const SearchDrawer = ({
   const getSearchData = async () => {
     try {
       let { data } = await axios.get(`${Api_Link}/getspecs?search=${search}`);
-      console.log(data.specs);
+     
       setData(data.specs);
     } catch (error) {}
   };
@@ -97,7 +98,8 @@ export const SearchDrawer = ({
                         yearOfModel: el.yearOfModel,
                       }),
                       setSearchDrawerOpen(false),
-                      succesAlert("Car Model Selected Success")
+                      !nav? succesAlert("Car Model Selected Success"):null
+                      
                     ]}
                     key={el._id}
                   >

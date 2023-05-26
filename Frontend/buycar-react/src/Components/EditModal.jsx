@@ -58,14 +58,14 @@ export const EditModal = ({ editModalOpen, setEditModalOpen, id,callData }) => {
                       title: e.target.value,
                     })
                   }
-                  placeholder="Enter Title"
+                  placeholder="Update Title"
                 />
                 <Input
                   type="number"
                   onChange={(e) =>
                     setInventoryData({ ...inventoryData, km: e.target.value })
                   }
-                  placeholder=" KMs on Odometer"
+                  placeholder="Update KMs on Odometer"
                 />
 
                 <Select
@@ -75,7 +75,7 @@ export const EditModal = ({ editModalOpen, setEditModalOpen, id,callData }) => {
                       majorScratches: e.target.value,
                     })
                   }
-                  placeholder="Major Scratches"
+                  placeholder="Update Major Scratches"
                 >
                   <option value="Yes">Yes</option>
                   <option value="No">No</option>
@@ -89,7 +89,7 @@ export const EditModal = ({ editModalOpen, setEditModalOpen, id,callData }) => {
                       price: e.target.value,
                     })
                   }
-                  placeholder="Enter Price"
+                  placeholder="Update Price"
                 />
 
                 <Input
@@ -100,7 +100,7 @@ export const EditModal = ({ editModalOpen, setEditModalOpen, id,callData }) => {
                       orginalPaint: e.target.value,
                     })
                   }
-                  placeholder="Original Paint"
+                  placeholder="Update Original Paint"
                 />
                 <Input
                   type="number"
@@ -120,7 +120,7 @@ export const EditModal = ({ editModalOpen, setEditModalOpen, id,callData }) => {
                       prevBuyers: e.target.value,
                     })
                   }
-                  placeholder="Number of previous buyers"
+                  placeholder="Update Number of previous buyers"
                 />
 
                 <Input
@@ -131,7 +131,7 @@ export const EditModal = ({ editModalOpen, setEditModalOpen, id,callData }) => {
                       registrationPlace: e.target.value,
                     })
                   }
-                  placeholder="Registration Place"
+                  placeholder="Update Registration Place"
                 />
                 <ButtonMain
                   loading={loading}

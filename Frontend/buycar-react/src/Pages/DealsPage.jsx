@@ -10,15 +10,19 @@ const DealsPage = () => {
   const [data, setData] = useState([]);
   const [filter, setFilter] = useState("");
   const [order, setOrder] = useState("");
+  const [loading,setLoading]=useState("")
 
   const getData = async () => {
-    console.log(filter, order);
     try {
+      setLoading(true)
       let { data } = await axios.get(
         `${Api_Link}/inventory?filter=${filter}&order=${order}`
       );
       setData(data.deals);
-    } catch (error) {}
+      setLoading(false)
+    } catch (error) {
+      setLoading(false)
+    }
   };
 
   useEffect(() => {
@@ -101,7 +105,7 @@ const DealsPage = () => {
         gap={3}
         columns={[1, 1, 2, 3]}
       >
-        {data.length === 0 ? (
+        {data.length === 0||loading ? (
           <>
             <Loader cardShow={true} />
             <Loader cardShow={true} />

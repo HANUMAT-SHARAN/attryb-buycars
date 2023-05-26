@@ -2,6 +2,7 @@ import jwtDecode from "jwt-decode";
 import {
   Box,
   Heading,
+  Image,
   Input,
   InputGroup,
   InputRightElement,
@@ -35,7 +36,6 @@ const Signup = () => {
     try {
       setLoading(true);
       let { data } = await axios.post(`${Api_Link}/register`, userData);
-      console.log(data);
 
       setUserData(initial);
       succesAlert(data.msg);
@@ -59,7 +59,10 @@ const Signup = () => {
       borderRadius={5}
       boxShadow={cssStyles.boxShadow1}
     >
-      <Heading fontSize={cssStyles.medium} mb={3}>
+      <center>
+        <Image src="https://attryb.com/assets/attrybNavLog.svg" />
+      </center>
+      <Heading mt={5} fontSize={cssStyles.medium} mb={3}>
         Signup Now
       </Heading>
       <form onSubmit={handleSignup} action="">
@@ -95,6 +98,7 @@ const Signup = () => {
             </InputRightElement>
           </InputGroup>
           <Text
+            cursor={"pointer"}
             color="blue"
             fontWeight={500}
             textDecoration={"underline"}
