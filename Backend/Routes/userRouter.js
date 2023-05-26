@@ -38,8 +38,10 @@ userRouter.post("/register", dateLogger, async (req, res) => {
 
 userRouter.post("/login", async (req, res) => {
   const { email, password } = req.body;
+
+  let user = await UserModel.find({ email });
   try {
-    let user = await UserModel.find({ email });
+    console.log(user,user.length)
     if (user.length < 1) {
       res.status(200).send({ msg: "User Does Not Exists" });
     } else {

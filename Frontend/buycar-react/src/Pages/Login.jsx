@@ -39,11 +39,12 @@ const Login = () => {
     try {
       setLoading(true);
       let { data } = await axios.post(`${Api_Link}/login`, userData);
-      setUserData(initial);
+    
       succesAlert(data.msg);
       if (data.token) {
         localStorage.setItem("userTokenBuyCars", data.token);
         getUserData(data.token);
+        setUserData(initial);
         nav("/deals");
       }
       setLoading(false);
