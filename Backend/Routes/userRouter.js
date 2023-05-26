@@ -41,7 +41,7 @@ userRouter.post("/login", async (req, res) => {
   try {
     let user = await UserModel.find({ email });
     if (user.length < 1) {
-      res.send(200).send({ msg: "User Does Not Exists" });
+      res.status(200).send({ msg: "User Does Not Exists" });
     } else {
       bcrypt.compare(password, user[0].password, async (error, result) => {
         if (error) {
@@ -68,6 +68,15 @@ userRouter.get("/user/:id", async (req, res) => {
   const { id } = req.params;
   try {
     let user = await UserModel.findById(id);
+    res.status(200).send({ user });
+  } catch (error) {
+    res.status(400).send({ msg: error.message });
+  }
+});
+userRouter.patch("/user/:id", async (req, res) => {
+  const { id } = req.params;
+  try {
+    let user = await UserModel.findByIdAndUpdate(id,req.body);
     res.status(200).send({ user });
   } catch (error) {
     res.status(400).send({ msg: error.message });

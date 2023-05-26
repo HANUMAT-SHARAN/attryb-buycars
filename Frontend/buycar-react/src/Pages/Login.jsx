@@ -35,20 +35,20 @@ const nav=useNavigate()
   };
   const handleLogin = async (e) => {
     e.preventDefault();
+   console.log(userData)
     try {
       setLoading(true);
-      let { data } = await axios.post(`${Api_Link}/register`, userData);
-
+      let { data } = await axios.post(`${Api_Link}/login`, userData);
       setUserData(initial);
       succesAlert(data.msg);
       if (data.token) {
         Cookies.set("userTokenBuyCars", data.token);
 
         getUserData(data.token);
-        setLoading(false);
-        try {
-        } catch (error) {}
+        
+        
       }
+      setLoading(false);
     } catch (error) {
       setLoading(false);
     }
@@ -66,7 +66,7 @@ const nav=useNavigate()
       </Heading>
       <form onSubmit={handleLogin} action="">
         <SimpleGrid gap={4} m="auto">
-          <Input
+          <Input required
             onChange={(e) =>
               setUserData({ ...userData, email: e.target.value })
             }
@@ -74,7 +74,7 @@ const nav=useNavigate()
             placeholder="Enter Your Password"
           />
           <InputGroup>
-            <Input
+            <Input required
               onChange={(e) =>
                 setUserData({ ...userData, password: e.target.value })
               }
@@ -85,7 +85,7 @@ const nav=useNavigate()
               {showPassword ? <ViewIcon /> : <ViewOffIcon />}
             </InputRightElement>
           </InputGroup>
-          <Text
+          <Text required
             color="blue"
             fontWeight={500}
             textDecoration={"underline"}

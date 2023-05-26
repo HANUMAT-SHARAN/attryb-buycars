@@ -5,10 +5,10 @@ const ButtonMain = ({ title, onClick, width, loading,type }) => {
   return (
     <Button
     type={type}
-    spinner={<BeatLoader size={"15px"} color="white"/>}
+    spinner={<BeatLoader size={"10px"} color="white"/>}
       width={width}
       isLoading={loading}
-      colorScheme="blue"
+      colorScheme="green"
       onClick={onClick}
     >
       {title}

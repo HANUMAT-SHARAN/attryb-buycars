@@ -43,10 +43,10 @@ const Signup = () => {
         Cookies.set("userTokenBuyCars", data.token);
 
         getUserData(data.token);
-        setLoading(false);
-        try {
-        } catch (error) {}
+        
+        
       }
+      setLoading(false);
     } catch (error) {
       setLoading(false);
     }
@@ -66,13 +66,13 @@ const Signup = () => {
       </Heading>
       <form onSubmit={handleSignup} action="">
         <SimpleGrid gap={4} m="auto">
-          <Input
+          <Input required
             value={userData.name}
             onChange={(e) => setUserData({ ...userData, name: e.target.value })}
             type="text"
             placeholder="Enter Your Name"
           />
-          <Input
+          <Input required
             value={userData.email}
             onChange={(e) =>
               setUserData({ ...userData, email: e.target.value })
@@ -81,7 +81,7 @@ const Signup = () => {
             placeholder="Enter Your Email"
           />
           <InputGroup>
-            <Input
+            <Input required
               value={userData.password}
               onChange={(e) =>
                 setUserData({ ...userData, password: e.target.value })

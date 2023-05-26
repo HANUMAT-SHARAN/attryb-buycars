@@ -14,6 +14,8 @@ const inventoryModelSchema = mongoose.Schema({
   userId: { type: mongoose.Schema.Types.ObjectId, ref: UserModel },
   img: { type: String, required: true },
   title: { type: String, required: true },
+  des:{type:Array,required:true}
+  
 });
 
 const InventoryModel = mongoose.model("inventory", inventoryModelSchema);
