@@ -1,6 +1,6 @@
 const dateLogger = (req, res, next) => {
     const date = new Date();
-  
+  //this date logger middleware is used to log the date where ever we want for any model in indian timezone
     const options={
         timeZone:"Asia/Kolkata",
         year:"numeric",
@@ -14,7 +14,7 @@ const dateLogger = (req, res, next) => {
     const indianTime = date.toLocaleString("en-IN", options);
   
     req.body.date = indianTime;
-    next();
+    next();//after that by next moving to next route
   };
   
   module.exports = { dateLogger };

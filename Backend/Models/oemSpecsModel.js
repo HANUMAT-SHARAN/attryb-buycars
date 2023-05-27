@@ -1,5 +1,9 @@
 const mongoose = require("mongoose");
 
+
+//this is the oem Specifications model Schema which states that all the keys of oem Specifications document will not more than 
+//thsese given keys and of specific types mentioned also
+
 const oemSpecsModelSchema = mongoose.Schema({
   nameOfModel: { required: true, type: String },
   yearOfModel: { required: true, type: String },

@@ -2,6 +2,9 @@ const mongoose = require("mongoose");
 const { oemSpecsModel } = require("./oemSpecsModel.js");
 const { UserModel } = require("./userModel.js");
 
+//this is the inventory model Schema which states that all the keys of inventory document will not more than 
+//thsese given keys and of specific types mentioned also
+
 const inventoryModelSchema = mongoose.Schema({
   km: { type: Number, required: true },
   majorScratches: { required: true, type: String },
