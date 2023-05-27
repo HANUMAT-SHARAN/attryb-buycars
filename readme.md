@@ -14,7 +14,7 @@ buycars.com. Buyers can look at the inventory and buy the car from buycars.com.
 <h1>Add Deal-Page</h1>
     <img src="https://res.cloudinary.com/dtkgxbbb7/image/upload/v1685158134/Screenshot_49_vbqvwx.png" alt="">
     <h1>Expanded Deal-Page</h1>
-    <h3>if you are dealer of partucalre deal car then only you will see delte and update button other wise you cant edit some other car details or delete the same</h3>
+    <h3>if you are dealer of partucalre deal car then only you will see delete and update button other wise you cant edit some other car details or delete the same</h3>
     <img src="https://res.cloudinary.com/dtkgxbbb7/image/upload/v1685158140/Screenshot_51_krl226.png" alt="">
      <h1>Signup-Page</h1>
     <img src="https://res.cloudinary.com/dtkgxbbb7/image/upload/v1685158140/Screenshot_53_bcjrfr.png" alt="">
