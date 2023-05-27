@@ -17,7 +17,7 @@ const DealCard = ({
   price,
   prevBuyers,
   userId,
-  originalPaint,
+  orginalPaint,
   registrationPlace,
   majorScratches,
   title,
@@ -147,7 +147,7 @@ const DealCard = ({
         accidents={accidents}
         des={des}
         price={price}
-        originalPaint={originalPaint}
+        originalPaint={orginalPaint}
         prevBuyers={prevBuyers}
         km={km}
       />

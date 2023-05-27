@@ -87,7 +87,7 @@ invetoryRouter.get("/inventory/:id", async (req, res) => {
   const { id } = req.params;
 
   try {
-    let deals = await InventoryModel.find({ userId: id });
+    let deals = await InventoryModel.findById(id);
     res.status(200).send({ deals });
   } catch (error) {
     res.status(500).send({ msg: error.message });

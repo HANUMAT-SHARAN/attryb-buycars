@@ -11,8 +11,8 @@ export const cssStyles = {
 
 //this is backend api link
 
-// export const Api_Link = `http://localhost:8080`;
-export const Api_Link=`https://wild-plum-kitten-tutu.cyclic.app`
+export const Api_Link = `http://localhost:8080`;
+// export const Api_Link=`https://wild-plum-kitten-tutu.cyclic.app`
 
 
 //all the allerts are made here once so i can use them wehere ever i want just by importing them and this will
