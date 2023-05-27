@@ -3,16 +3,15 @@ import { SearchDrawer } from "../Components/SearchDrawer";
 import {
   Box,
   Button,
-  Checkbox,
-  CheckboxGroup,
+ 
   CloseButton,
   Flex,
-  FormLabel,
+
   Heading,
   Input,
   Select,
   SimpleGrid,
-  TagLabel,
+
   Text,
 } from "@chakra-ui/react";
 import ButtonMain from "../Components/ButtonMain";
@@ -111,7 +110,7 @@ const AddDeal = () => {
       infoAlert("Description is Too Short");
       return;
     }
-    
+
     //here i have used spread operator which indicates when every new description obj is added
     // prv all des are used and spread in the new array along with the new one
 

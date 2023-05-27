@@ -17,7 +17,7 @@ import { setUser } from "../Redux/authSlice";
 import jwtDecode from "jwt-decode";
 import { useDispatch } from "react-redux";
 
-import Cookies from "js-cookie";
+
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
@@ -46,7 +46,7 @@ const Login = () => {
     
       succesAlert(data.msg);
       if (data.token) {
-        
+
         //if token is there only set token in localStorage and call user data 
 
         localStorage.setItem("userTokenBuyCars", data.token);

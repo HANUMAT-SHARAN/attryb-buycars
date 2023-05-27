@@ -7,7 +7,7 @@ import {
   ModalBody,
   ModalCloseButton,
   Button,
-  Text,
+
   SimpleGrid,
   Input,
   Select,

@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Api_Link, cssStyles } from "../Components/Reusable";
-import { Box, Button, Flex, Select, SimpleGrid, Text } from "@chakra-ui/react";
+import { Box, Flex, Select, SimpleGrid, Text } from "@chakra-ui/react";
 import DealCard from "../Components/DealCard";
 import ButtonMain from "../Components/ButtonMain";
 import Loader from "../Components/Loader";

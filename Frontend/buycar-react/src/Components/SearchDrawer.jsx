@@ -11,7 +11,7 @@ import {
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Api_Link, cssStyles, succesAlert } from "./Reusable";
-import { render } from "react-dom";
+
 import SearchCard from "./SearchCard";
 import Loader from "./Loader";
 export const SearchDrawer = ({
@@ -44,7 +44,7 @@ export const SearchDrawer = ({
     //in this useEffect we have created an id every time when serach text is changes which is setTimout timer id
     //if any search text changes any other timer is going on it will be cleared by clearTimout and new timeout will 
     //create afte times over we will search for data in this way we saves number of api calls
-    
+
     if (firstRender) {
       let id = setTimeout(() => {
         getSearchData();

@@ -1,7 +1,7 @@
 import { Box, Button, Flex, Image, SimpleGrid, Text } from "@chakra-ui/react";
 import React, { useState } from "react";
 import { Api_Link, cssStyles, succesAlert } from "./Reusable";
-import ButtonMain from "./ButtonMain";
+
 import { Accordian } from "./Accordian";
 import { useSelector } from "react-redux";
 import axios from "axios";

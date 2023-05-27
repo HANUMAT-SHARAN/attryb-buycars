@@ -16,7 +16,7 @@ import { Api_Link, cssStyles, succesAlert } from "../Components/Reusable";
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import { setUser } from "../Redux/authSlice";
-import Cookies from "js-cookie";
+
 import { useNavigate } from "react-router-dom";
 const Signup = () => {
   const [showPassword, setShowPassword] = useState(false);

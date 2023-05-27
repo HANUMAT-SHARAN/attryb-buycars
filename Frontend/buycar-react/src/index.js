@@ -10,9 +10,12 @@ import { store } from "./Redux/store";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
+  //this provider is for the redux so the app can used all the store state of the redux
   <Provider store={store}>
     <ChakraProvider>
+      {/* this rapping from chakra provider is used to get the css and ui components for the ChakraProvider for good ui */}
       <BrowserRouter>
+      {/* browser router is used to route through different pages  */}
         <App />
       </BrowserRouter>
     </ChakraProvider>

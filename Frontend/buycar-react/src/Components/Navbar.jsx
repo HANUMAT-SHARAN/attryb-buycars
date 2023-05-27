@@ -15,10 +15,10 @@ import {
 import React, { useState } from "react";
 import ButtonMain from "./ButtonMain";
 import { useNavigate } from "react-router-dom";
-import { FaMale, FaSearch } from "react-icons/fa";
+import {  FaSearch } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { logoutUser } from "../Redux/authSlice";
-import Cookies from "js-cookie";
+
 import { SearchDrawer } from "./SearchDrawer";
 const Navbar = () => {
   const { auth, user } = useSelector((store) => store.auth);

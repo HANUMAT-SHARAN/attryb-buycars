@@ -2,8 +2,8 @@ import { configureStore } from "@reduxjs/toolkit";
 import authSliceReducer from "./authSlice";
 
 export const store = configureStore({
-  devTools: true,
+  devTools: true,//to make dev tools extenstion enable for solving error well dev tools is true
   reducer: {
-    auth: authSliceReducer,
+    auth: authSliceReducer,//this is the reducer and intital state carreid from auth slice file
   },
 });
