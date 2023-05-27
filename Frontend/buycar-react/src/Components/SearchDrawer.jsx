@@ -22,20 +22,33 @@ export const SearchDrawer = ({
 }) => {
   const [search, setSearch] = useState("");
   const [firstRender, setFirstRender] = useState(false);
+  const [loading,setLoading]=useState(false)
   const [data, setData] = useState([]);
+
+  //in this component we have implemented debouncing for searching and used firstrender usestate 
+  //so that we can prevent to call the api when component is firstly rendered
 
   const getSearchData = async () => {
     try {
+      setLoading(true)
       let { data } = await axios.get(`${Api_Link}/getspecs?search=${search}`);
      
       setData(data.specs);
-    } catch (error) {}
+      setLoading(false)
+    } catch (error) {
+      setLoading(false)
+    }
   };
   useEffect(() => {
+
+    //in this useEffect we have created an id every time when serach text is changes which is setTimout timer id
+    //if any search text changes any other timer is going on it will be cleared by clearTimout and new timeout will 
+    //create afte times over we will search for data in this way we saves number of api calls
+    
     if (firstRender) {
       let id = setTimeout(() => {
         getSearchData();
-      }, 1000);
+      }, 500);
 
       return () => clearTimeout(id);
     } else {
@@ -83,7 +96,7 @@ export const SearchDrawer = ({
               gap={3}
               columns={[1, 2, 3, 4]}
             >
-              {data.length === 0 ? (
+              {data.length === 0||loading ? (
                 <>
                   <Loader searchShow={true} /> <Loader searchShow={true} />{" "}
                   <Loader searchShow={true} /> <Loader searchShow={true} />

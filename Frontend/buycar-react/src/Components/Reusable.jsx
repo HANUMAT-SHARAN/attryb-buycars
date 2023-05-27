@@ -38,6 +38,7 @@ export const defaultAlert = (message, theme) => {
 
 //this uploadFiles Function takes image from frontend and then upload to cloud database cloudinary and give us the 
 //return the link of that image
+
 export const uploadFilesFunction = async (image) => {
   try {
     const filesData = new FormData();

@@ -63,14 +63,23 @@ const AddDeal = () => {
     inventoryData.oemId = checkedOne.id;
 
     if (des.length === 0) {
+      //this block is used to check if des is empty show alert that you need to add description
       errorAlert("Description Cant Be empty");
       return;
     }
     if (inventoryData.oemId === "") {
+      
+      //this block is use to that to populate data from the backend we need some refernece of oem model so if 
+      //that is not selected then errorAlert
+
       errorAlert("Please Select Some Original Equipment Manufacturers");
       return;
     }
     setLoading(true);
+
+    //this upload file function will async so it wil wait and take time to get the image url and after that wil
+    //return and used as inventory item image
+
     inventoryData.img = await uploadFilesFunction(image);
 
     try {
@@ -79,6 +88,7 @@ const AddDeal = () => {
     
       setInventoryData(initial);
       if (inputRef.current) {
+        //this is used to empty the image after every succesfully form submission
         inputRef.current.value = "";
       }
       setDes([]);
@@ -89,15 +99,22 @@ const AddDeal = () => {
   };
 
   const handleDelete = (id) => {
+    //this will delete the description object from the des by filtering them on the base of i
     des = des.filter((el) => el.id !== id);
     setDes(des);
   };
 
   const addDes = () => {
+
     if (description.length === 0) {
+      //if desscription lengt is small then error or if its empty
       infoAlert("Description is Too Short");
       return;
     }
+    
+    //here i have used spread operator which indicates when every new description obj is added
+    // prv all des are used and spread in the new array along with the new one
+
     setDes([...des, { description, id: des.length + 1 }]);
     setDescription("");
   };

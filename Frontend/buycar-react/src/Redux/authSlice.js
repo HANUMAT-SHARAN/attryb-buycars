@@ -3,7 +3,7 @@ import Cookies from "js-cookie";
 
 const initialState = {
   user: {},
-  auth: Cookies.get("userTokenBuyCars") ? true : false,
+  auth: localStorage.get("userTokenBuyCars") ? true : false,
 };
 
 export const authSlice = createSlice({

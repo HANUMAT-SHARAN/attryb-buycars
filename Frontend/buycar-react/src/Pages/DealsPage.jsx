@@ -10,18 +10,19 @@ const DealsPage = () => {
   const [data, setData] = useState([]);
   const [filter, setFilter] = useState("");
   const [order, setOrder] = useState("");
-  const [loading,setLoading]=useState("")
+  const [loading, setLoading] = useState("");
 
   const getData = async () => {
+    //this function is used to get deals data dynamically based on the filter and order coming from usestate
     try {
-      setLoading(true)
+      setLoading(true);
       let { data } = await axios.get(
         `${Api_Link}/inventory?filter=${filter}&order=${order}`
       );
       setData(data.deals);
-      setLoading(false)
+      setLoading(false);
     } catch (error) {
-      setLoading(false)
+      setLoading(false);
     }
   };
 
@@ -77,7 +78,7 @@ const DealsPage = () => {
             Select Colors
           </Text>
           <Select
-          color={"green"}
+            color={"green"}
             placeholder="Select Colors"
             onChange={(e) => [setFilter("colors"), setOrder(e.target.value)]}
           >
@@ -105,7 +106,7 @@ const DealsPage = () => {
         gap={3}
         columns={[1, 1, 2, 3]}
       >
-        {data.length === 0||loading ? (
+        {data.length === 0 || loading ? (
           <>
             <Loader cardShow={true} />
             <Loader cardShow={true} />

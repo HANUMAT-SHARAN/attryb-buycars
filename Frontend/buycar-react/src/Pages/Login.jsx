@@ -29,10 +29,14 @@ const Login = () => {
   const dispatch = useDispatch();
 
   const getUserData = async (token) => {
+
+//this function is used to decode the token on frontend and take id from that 
+//and then call the api for the user data and store is redux on succesfull login
     const decoded = jwtDecode(token);
     let { data } = await axios.get(`${Api_Link}/user/${decoded.id}`);
     dispatch(setUser(data.user));
   };
+
   const handleLogin = async (e) => {
     e.preventDefault();
    
@@ -42,6 +46,9 @@ const Login = () => {
     
       succesAlert(data.msg);
       if (data.token) {
+        
+        //if token is there only set token in localStorage and call user data 
+
         localStorage.setItem("userTokenBuyCars", data.token);
         getUserData(data.token);
         setUserData(initial);
