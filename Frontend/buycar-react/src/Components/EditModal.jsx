@@ -38,6 +38,7 @@ export const EditModal = ({
   useEffect(() => {
     getData();
   }, [id]);
+  
   //this is edit modal open component  which is opened when when we click on parent edit modal open button with
   // and used to show input form to update the required values we want
 

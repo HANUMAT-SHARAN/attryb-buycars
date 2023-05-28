@@ -3,15 +3,12 @@ import { SearchDrawer } from "../Components/SearchDrawer";
 import {
   Box,
   Button,
- 
   CloseButton,
   Flex,
-
   Heading,
   Input,
   Select,
   SimpleGrid,
-
   Text,
 } from "@chakra-ui/react";
 import ButtonMain from "../Components/ButtonMain";
@@ -46,11 +43,9 @@ const AddDeal = () => {
     img: "",
     title: "",
   };
-  
-  const [image, setImage] = useState("");
+
   const { user } = useSelector((store) => store.auth);
 
-  
   const [inventoryData, setInventoryData] = useState(initial);
   const inputRef = useRef(null);
 
@@ -67,8 +62,7 @@ const AddDeal = () => {
       return;
     }
     if (inventoryData.oemId === "") {
-      
-      //this block is use to that to populate data from the backend we need some refernece of oem model so if 
+      //this block is use to that to populate data from the backend we need some refernece of oem model so if
       //that is not selected then errorAlert
 
       errorAlert("Please Select Some Original Equipment Manufacturers");
@@ -79,17 +73,12 @@ const AddDeal = () => {
     //this upload file function will async so it wil wait and take time to get the image url and after that wil
     //return and used as inventory item image
 
-    inventoryData.img = await uploadFilesFunction(image);
-
     try {
       let { data } = await axios.post(`${Api_Link}/inventory`, inventoryData);
       succesAlert(data.msg);
-    
+
       setInventoryData(initial);
-      if (inputRef.current) {
-        //this is used to empty the image after every succesfully form submission
-        inputRef.current.value = "";
-      }
+
       setDes([]);
       setLoading(false);
     } catch (error) {
@@ -104,7 +93,6 @@ const AddDeal = () => {
   };
 
   const addDes = () => {
-
     if (description.length === 0) {
       //if desscription lengt is small then error or if its empty
       infoAlert("Description is Too Short");
@@ -119,7 +107,13 @@ const AddDeal = () => {
   };
 
   return (
-    <Box borderRadius={4} boxShadow={cssStyles.boxShadow1} p={4} m="auto" width={["330px", "500px"]}>
+    <Box
+      borderRadius={4}
+      boxShadow={cssStyles.boxShadow1}
+      p={4}
+      m="auto"
+      width={["330px", "500px"]}
+    >
       <Heading>Add New Deal </Heading>
 
       <SearchDrawer
@@ -147,7 +141,11 @@ const AddDeal = () => {
             }
             placeholder=" KMs on Odometer"
           />
-          <Flex flexDirection={["column","row"]} alignItems={"center"} justifyContent={"space-around"}>
+          <Flex
+            flexDirection={["column", "row"]}
+            alignItems={"center"}
+            justifyContent={"space-around"}
+          >
             <Text
               p={1}
               pl={2}
@@ -196,11 +194,14 @@ const AddDeal = () => {
           </Box>
 
           <Input
-            ref={inputRef}
-            type="file"
             required
-            onChange={(e) => setImage(e.target.files[0])}
-            accept="image/*"
+            value={inventoryData.img}
+            onChange={(e) =>
+              setInventoryData({
+                ...inventoryData,
+                img: e.target.value,
+              })
+            }
           />
 
           <Select
