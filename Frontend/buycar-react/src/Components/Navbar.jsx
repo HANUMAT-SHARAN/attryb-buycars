@@ -101,8 +101,8 @@ const Navbar = () => {
                   <Avatar size="md" name={user.name} />
                 </MenuButton>
                 <MenuList>
-                  <MenuItem >
-                    <Text color="red" colorScheme="red" onClick={() => handleLogout()}>
+                  <MenuItem onClick={() => handleLogout()} >
+                    <Text color="red" colorScheme="red" >
                       Logout
                     </Text>
                   </MenuItem>
