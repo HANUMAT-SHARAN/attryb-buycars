@@ -54,6 +54,7 @@ const AddDeal = () => {
 
     inventoryData.des = des;
     inventoryData.userId = user._id;
+    
     inventoryData.oemId = checkedOne.id;
 
     if (des.length === 0) {
@@ -61,7 +62,7 @@ const AddDeal = () => {
       errorAlert("Description Cant Be empty");
       return;
     }
-    if (inventoryData.oemId === "") {
+    if (!inventoryData.oemId ) {
       //this block is use to that to populate data from the backend we need some refernece of oem model so if
       //that is not selected then errorAlert
 
