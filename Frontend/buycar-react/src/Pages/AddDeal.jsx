@@ -195,6 +195,8 @@ const AddDeal = () => {
 
           <Input
             required
+            _placeholder={"Enter Car Image Url"}
+            type="url"
             value={inventoryData.img}
             onChange={(e) =>
               setInventoryData({
